@@ -1,9 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/sites/")({
-    component: SitesPage,
-});
+import { SitesList } from "@/components/sites/sites-list";
 
-function SitesPage() {
-    return <div className="p-4">Sites List</div>;
-}
+export const Route = createFileRoute("/sites/")({
+    component: SitesList,
+});

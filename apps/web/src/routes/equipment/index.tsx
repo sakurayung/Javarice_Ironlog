@@ -20,7 +20,7 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@project-construction/ui/components/dropdown-menu";
-import { MoreHorizontal, Search, Settings2, ShieldAlert } from "lucide-react";
+import { MoreHorizontal, Search } from "lucide-react";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/equipment/")({
@@ -125,7 +125,7 @@ function EquipmentPage() {
                                         : "outline"
                                 }
                                 onClick={() => setFilterStatus(status)}
-                                className="il-touch h-10 px-4 text-sm"
+                                className="il-touch h-12 px-4 text-sm"
                             >
                                 {status}
                             </Button>
@@ -152,7 +152,7 @@ function EquipmentPage() {
                             <TableHead>Status</TableHead>
                             <TableHead>Key Status</TableHead>
                             <TableHead>Acquisition Date</TableHead>
-                            <TableHead className="w-[50px]"></TableHead>
+                            <TableHead className="w-16"></TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -230,6 +230,19 @@ function EquipmentPage() {
                                                         >
                                                             <DropdownMenuItem>
                                                                 View Details
+                                                            </DropdownMenuItem>
+                                                        </Link>
+                                                    </PermissionGuard>
+                                                    <PermissionGuard action="updateEquipment">
+                                                        <Link
+                                                            to="/equipment/$equipmentId"
+                                                            params={{
+                                                                equipmentId:
+                                                                    eq.id,
+                                                            }}
+                                                        >
+                                                            <DropdownMenuItem>
+                                                                Edit Details
                                                             </DropdownMenuItem>
                                                         </Link>
                                                     </PermissionGuard>

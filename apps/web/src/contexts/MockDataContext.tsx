@@ -1,9 +1,16 @@
 import React, { createContext, useContext, useState } from "react";
-import { Equipment, Site, Assignment, AuditEntry } from "@/types";
+import {
+    Equipment,
+    Site,
+    Assignment,
+    AuditEntry,
+    EquipmentLogEntry,
+} from "@/types";
 import { initialMockEquipment } from "@/lib/mock/equipment";
 import { initialMockSites } from "@/lib/mock/sites";
 import { initialMockAssignments } from "@/lib/mock/assignments";
 import { initialMockAuditLog } from "@/lib/mock/audit-log";
+import { initialMockEquipmentLog } from "@/lib/mock/equipment-log";
 
 interface MockDataContextType {
     equipment: Equipment[];
@@ -14,6 +21,8 @@ interface MockDataContextType {
     setAssignments: React.Dispatch<React.SetStateAction<Assignment[]>>;
     auditLog: AuditEntry[];
     setAuditLog: React.Dispatch<React.SetStateAction<AuditEntry[]>>;
+    equipmentLog: EquipmentLogEntry[];
+    setEquipmentLog: React.Dispatch<React.SetStateAction<EquipmentLogEntry[]>>;
 }
 
 const MockDataContext = createContext<MockDataContextType | undefined>(
@@ -28,6 +37,9 @@ export function MockDataProvider({ children }: { children: React.ReactNode }) {
         initialMockAssignments,
     );
     const [auditLog, setAuditLog] = useState<AuditEntry[]>(initialMockAuditLog);
+    const [equipmentLog, setEquipmentLog] = useState<EquipmentLogEntry[]>(
+        initialMockEquipmentLog,
+    );
 
     return (
         <MockDataContext.Provider
@@ -40,6 +52,8 @@ export function MockDataProvider({ children }: { children: React.ReactNode }) {
                 setAssignments,
                 auditLog,
                 setAuditLog,
+                equipmentLog,
+                setEquipmentLog,
             }}
         >
             {children}

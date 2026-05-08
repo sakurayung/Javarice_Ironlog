@@ -129,7 +129,7 @@ function MapContent() {
         try {
             const map = new mapboxgl.Map({
                 container: mapContainerRef.current,
-                style: "mapbox://styles/mapbox/dark-v11",
+                style: "mapbox://styles/mapbox/streets-v12",
                 center: DAVAO_CENTER,
                 zoom: 12,
             });
@@ -162,14 +162,15 @@ function MapContent() {
             element.style.display = "flex";
             element.style.alignItems = "center";
             element.style.justifyContent = "center";
-            element.style.width = "36px";
-            element.style.height = "36px";
+            element.style.width = "34px";
+            element.style.height = "34px";
             element.style.borderRadius = "999px";
             element.style.fontSize = "12px";
             element.style.fontWeight = "700";
-            element.style.backgroundColor = "hsl(var(--primary))";
-            element.style.color = "hsl(var(--primary-foreground))";
-            element.style.border = "2px solid hsl(var(--border))";
+            element.style.backgroundColor = "#FFFFFF";
+            element.style.color = "#1a73e8";
+            element.style.border = "2px solid #1a73e8";
+            element.style.boxShadow = "0 2px 6px rgba(0, 0, 0, 0.2)";
 
             const marker = new mapboxgl.Marker({ element })
                 .setLngLat([site.coordinates.lng, site.coordinates.lat])

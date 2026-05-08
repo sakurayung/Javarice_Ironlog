@@ -51,3 +51,18 @@ export interface AuditEntry {
     timestamp: string; // ISO datetime
     keyStatus: AuditKeyStatus;
 }
+
+export type EquipmentLogAction =
+    | "Registered"
+    | "Status Updated"
+    | "Decommissioned"
+    | "Assigned"
+    | "Unassigned";
+
+export interface EquipmentLogEntry {
+    id: string;
+    equipmentId: string;
+    action: EquipmentLogAction;
+    timestamp: string; // ISO datetime
+    note?: string;
+}
